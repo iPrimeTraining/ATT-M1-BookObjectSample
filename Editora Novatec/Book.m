@@ -118,6 +118,9 @@
 }
 
 -(int)ageOfBook{
+    //Alagbarbos
+    //Calcula a idade do livro baseado no ano atual, menos o ano da publicação.
+    
     return self.yearActual - self.yearPublished;
 }
 
