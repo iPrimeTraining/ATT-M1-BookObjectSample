@@ -6,14 +6,11 @@
 //  Copyright (c) 2015 Anderson Tagata. All rights reserved.
 //
 
-#import "Book.h"
+@class Book; //Devemos informar qual a classe pai aqui e fazer o import no .m
 
 @interface BookChildren : Book //Sub Classe da classe pai BOOK
 
 @property (strong,nonatomic) NSString * category;
 @property (nonatomic)  int ageRecommended;
-
-//metodo que retorna informacoes completa da classe Book e BookChildren
--(NSString *) summaryBookChildren;
 
 @end

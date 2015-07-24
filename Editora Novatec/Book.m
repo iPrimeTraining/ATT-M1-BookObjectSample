@@ -10,8 +10,9 @@
 
 @implementation Book
 
+//init OverRide (Inicialização personalizada)
 -(id)init{
-    self = [super init];
+    self = [super init]; // Isso garante da carga de inicializacao da classe pai (super) ou seja NSObject
     if (self) {
         //Init Code aqui!
         self.title = @"";
@@ -25,8 +26,9 @@
     return self;
 }
 
+//init especial (Inicialização para caso de exemplos ou testes)
 -(id)initBookSample1{
-    self = [super init];
+    self = [super init];// Isso garante da carga de inicializacao da classe pai (super) ou seja NSObject
     if (self) {
         //Init Code aqui!
         self.title = @"Aprendendo Cocoa com Objective-C";
@@ -40,8 +42,9 @@
     return self;
 }
 
+//init especial (Inicialização para caso de exemplos ou testes)
 -(id)initBookSample2{
-    self = [super init];
+    self = [super init];// Isso garante da carga de inicializacao da classe pai (super) ou seja NSObject
     if (self) {
         //Init Code aqui!
         self.title = @"Aprendendo Programação iOS";
@@ -55,6 +58,7 @@
     return self;
 }
 
+//init parametrizado (Inicialização para caso de inicializar uma classe passando todos os valores para cada propriedade da classe, usado quando vc ja tiver os dados para passar na inicializacao da instancia)
 -(id)initBookWithTitle:(NSString *)title
              andAuthor:(NSString *)author
           andPublisher:(NSString *)publisher
@@ -63,7 +67,7 @@
       andYearPublished:(int)yearPublished
          andYearActual:(int)yearActual{
     
-    self = [self init];
+    self = [self init];// Isso garante da carga de inicializacao da classe pai (super) ou seja NSObject
     if (self) {
         //Init Code aqui!
         self.title = title;
@@ -77,7 +81,7 @@
     return self;
 }
 
-
+//Metodo da Instancia da Classe Book, que retorna uma string com os dados da propriedades que tiverem valores validos.
 -(NSString *)summary{
     
     NSString * summaryText;
@@ -117,11 +121,24 @@
     return summaryText;
 }
 
+//Calcula a Idade do Livro
 -(int)ageOfBook{
-    //Alagbarbos
-    //Calcula a idade do livro baseado no ano atual, menos o ano da publicação.
+    int age=0;
     
-    return self.yearActual - self.yearPublished;
+    //Caso o Ano de Publicacao do Livro for MAIOR que ZERO e
+    // o Ano Atual for tambem MAIOR que ZERO
+    if (self.yearPublished>0 && self.yearActual>0) {
+        
+        // Se o ano da publicacao for menor que o ano atual
+        if (self.yearPublished<self.yearActual) {
+            
+            //Calcula a idade do livro baseado no ano atual, menos o ano da publicação.
+            age = self.yearActual - self.yearPublished;
+            
+        }
+        
+    }
+    return age;
 }
 
 @end

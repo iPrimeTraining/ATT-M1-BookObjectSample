@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class Book;
-
 @interface Book : NSObject
 
 -(id)initBookSample1;

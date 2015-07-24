@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Anderson Tagata. All rights reserved.
 //
 
+#import "Book.h" // Apos informar no .h sobre o @Class, importamos aqui a classe pai (Book.h)
 #import "BookChildren.h"
 
 @implementation BookChildren
@@ -20,9 +21,11 @@
     return self;
 }
 
--(NSString *)summaryBookChildren{
+//metodo que retorna informacoes completa da classe Book e BookChildren
+// Como esse metodo existe na classe pai com o mesmo nome, estamos entao fazendo um OVERRIDE da mesma
+-(NSString *) summary{
 
-   NSString * summaryText = [self summary]; //Sumario inicial vem da classe pai BOOK
+   NSString * summaryText = [super summary]; //Sumario inicial vem da classe pai BOOK (super)
     
     // Adicionando os itens extras
     if (![self.category isEqualToString:@""]) {
